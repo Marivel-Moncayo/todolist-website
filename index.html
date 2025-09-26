@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en"> <!--Document is in english-->
+<head>
+  <meta charset="UTF-8"> <!--Page supports all characters-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Make it mobile friendly -->
+  <title>Simple Static To-Do List</title> <!--Browser tab name -->
+  <style> /* CSS part */
+    body {
+      font-family: Courier New, Courier New; /* Title list and list font*/
+      background: #181825;  /*Body background*/
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+    }
+    .todo-container {
+      background: #cdd6f4; /*The background of To-do List*/
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    h1 {
+      text-align: center;
+      color: #000000;
+    }
+    p{
+      color: white;
+      padding: 10px;
+      position: fixed;
+      text-align: center;
+      bottom: 0px;
+    }
+    input {
+      width: 70%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+    }
+    button {
+      padding: 8px 12px;
+      border: none;
+      background: #f5c2e7;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+    button:hover {
+      background: #f6e1f1;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+    li {
+      background: #aab9e9; /*The background color of the list*/
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .delete-btn {
+      background: #a6e3a1;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .delete-btn:hover {
+      background: #77dd6e;
+    }
+  </style>
+</head>
+<body> <!--Html body starts here -->
+  <div class="todo-container"> <!--Groups everything together so we can style it with CSS -->
+    <h1>To-Do List</h1>
+    <!--type=text make it a text field -->
+    <!--id will assign the item an ID so javascript can locate it -->
+    <!--placeholder will show in the text box-->
+    <input type="text" id="taskInput" placeholder="Enter a item..."> 
+    <button onclick="addTask()">Add</button> <!--The button that will add the task-->
+    <ul id="taskList"></ul> <!--unordered list begins here, task list is also the id -->
+  </div>
+
+  <script>//Javascript
+    function addTask() { //Function that will run when the button is added
+      const input = document.getElementById("taskInput"); //Looks for id to store in a variable
+      const taskText = input.value.trim(); //Get the user input from the test box
+
+      if (taskText === "") return; //When the input empty then nothing is added
+
+      const li = document.createElement("li"); // Creates a new listed items
+      li.textContent = taskText; //Set the user input as a list item
+
+      const deleteBtn = document.createElement("button"); //Creates a delete button element
+      deleteBtn.textContent = "X"; //label exit button
+      deleteBtn.classList.add("delete-btn"); //add to CSS 
+      deleteBtn.onclick = () => li.remove(); //This will activate the exit button
+
+      li.appendChild(deleteBtn); //Adds the exit button on the list items
+      document.getElementById("taskList").appendChild(li); //Will add the new item at the end of the list
+
+      input.value = ""; //Clears the input box after user write input
+    }
+  </script>
+  <p class="custom-text">Note: This item will not save after exiting the app. Please be aware. </p>
+
+
+</body>
+</html>
