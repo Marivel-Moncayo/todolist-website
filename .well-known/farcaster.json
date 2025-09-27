@@ -1,0 +1,13 @@
+{
+  "frame": {
+    "name": "Simple To Do List",
+    "version": "1",
+    "iconUrl": "https://raw.githubusercontent.com/Marivel-Moncayo/todolist-website/refs/heads/main/farcaster_logo.png",
+    "homeUrl": "https://todolistmari.netlify.app/",
+    "subtitle": "To do list",
+    "description": "To do list",
+    "primaryCategory": "productivity",
+    "splashImageUrl": "https://raw.githubusercontent.com/Marivel-Moncayo/todolist-website/refs/heads/main/farcaster_logo.png",
+    "splashBackgroundColor": "#000000"
+  }
+}
